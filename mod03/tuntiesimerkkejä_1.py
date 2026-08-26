@@ -151,10 +151,10 @@
 
 #print(f"{str1} {luku} kertaa!")
 
-luku = 28923
+# luku = 28923
 
-if luku % 2 == 0:
-    print(f"Lukusi {luku} on parillinen")
+# if luku % 2 == 0:
+#     print(f"Lukusi {luku} on parillinen")
 
-else:
-    print(f"Lukusi {luku} on pariton")
+# else:
+#     print(f"Lukusi {luku} on pariton")
