@@ -86,3 +86,75 @@
 #print("Haluan 50 sydäntä")
 #print(50*sydän)
 #print("Sukunimeni on Helenius")
+
+#print(id(luku1))
+# muistipaikan selvitys id: jos tarvii jostain syystä
+
+#mu1 = 3
+# integer
+
+#mu2 = 3.5
+# float
+
+#mu3 = '3'
+#string
+
+#mu4 = True
+#bool
+
+#mu31 = int(mu3)
+# muuttaa mu3 string -> integer
+
+#print(mu31*2)
+# testi, miltä nyt mu31 näyttää. mu3 on muuttunut string - > integer
+
+#a, b = 3, 6
+# pythonissa voi laittaa muuttujat samalle riville, jos erottelee ,:lla
+
+#print(2 = 2)
+# ei toimi, koska = tarkoittaa käskyä, esim a = 2
+
+#print(2 == 2)
+# toimii, koska == tarkoittaa kysymystä tai yhtäsuuri kuin
+# != tarkoittaa, ei yhtäsuuri kuin
+
+#luku1 = 100
+#luku2 = 523
+
+#print(f"{math.log10(luku1):.2f}")
+#print(f"{math.log10(luku2):.2f}")
+
+#print(luku2 / luku1)
+#print(luku2 // luku1)
+
+# / = jakolasku, float // = jakolasku, integer
+
+#print(f'10 neliöjuuri on ≈ {math.sqrt(luku2):0.2f}')
+# jos laittaa f ennen ' tai " niin kyseisen printin sisään voi tehdä aaltosulkujen sisään joko esim. matematiikan laskuja tai funktioita
+# jos haluaa kokeilla pitää laittaa import math päälle
+
+#luku = int(input("Anna minulle joku luku:\n"))
+
+#print(f"\nAntamasi luku oli: {luku} ja\n")
+# toimii myös mutta voi lisätä suoraan if lausekkeisiin
+
+#if luku < 100:
+    #print(f"Lukusi oli {luku} ja on pienempi kuin 100")
+#elif luku == 100:
+    #print(f"Lukusi oli {luku} ja on tasan 100")
+#else:
+    #print(f"Lukusi oli {luku} ja on yli 100")
+
+
+#luku = int(input("Montako kertaa?:\n"))
+#str1 = "Terve"
+
+#print(f"{str1} {luku} kertaa!")
+
+luku = 28923
+
+if luku % 2 == 0:
+    print(f"Lukusi {luku} on parillinen")
+
+else:
+    print(f"Lukusi {luku} on pariton")
