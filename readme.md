@@ -15,3 +15,11 @@ Tein myös **Projekti 1**, loin pelille oman kansion ja sen sisälle readme.md t
 ## Moduuli 4
 
 Tein tehtävät 1, 2, 3 ja 4
+
+## Moduuli 5
+
+Tein tehtävät 1, 2, 3, 4 ja 5. Tehtävää 6 en osannut tehdä, vaikutti todella monimutkaiselta.
+
+## Moduuli 6
+
+Tein tehtävät 1, 2, 3 ja 4
