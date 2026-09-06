@@ -20,6 +20,8 @@ Tein tehtävät 1, 2, 3 ja 4
 
 Tein tehtävät 1, 2, 3, 4 ja 5. Tehtävää 6 en osannut tehdä, vaikutti todella monimutkaiselta.
 
+Tein myös **Projekti 2**, pelillä on nyt päävalikko.
+
 ## Moduuli 6
 
 Tein tehtävät 1, 2, 3 ja 4
