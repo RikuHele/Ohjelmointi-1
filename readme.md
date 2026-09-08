@@ -25,3 +25,7 @@ Tein myös **Projekti 2**, pelillä on nyt päävalikko.
 ## Moduuli 6
 
 Tein tehtävät 1, 2, 3 ja 4
+
+## Moduuli 7
+
+Tein tehtävät 1, 2, 3, 4, 5 ja 6
