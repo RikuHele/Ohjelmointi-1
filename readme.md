@@ -18,9 +18,9 @@ Tein tehtävät 1, 2, 3 ja 4
 
 ## Moduuli 5
 
-Tein tehtävät 1, 2, 3, 4 ja 5. Tehtävää 6 en osannut tehdä, vaikutti todella monimutkaiselta.
+Tein tehtävät 1, 2, 3, 4 ja 5. Tehtävää 6 en osannut tehdä, vaikutti todella monimutkaiselta
 
-Tein myös **Projekti 2**, pelillä on nyt päävalikko.
+Tein myös **Projekti 2**, pelillä on nyt päävalikko
 
 ## Moduuli 6
 
@@ -29,3 +29,9 @@ Tein tehtävät 1, 2, 3 ja 4
 ## Moduuli 7
 
 Tein tehtävät 1, 2, 3, 4, 5 ja 6
+
+Tein myös **Projekti 3**, pelin päävalikoiden toiminnoilla on omat funktiot
+
+## Moduuli 8
+
+Tein tehtävät 1, 2 ja 3
