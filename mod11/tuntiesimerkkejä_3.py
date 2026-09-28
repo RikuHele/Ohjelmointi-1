@@ -104,3 +104,20 @@
 #     print(f'{b.laulaja} - {b.biisin_nimi}')
 
 # # tässä ohjelma jossa on biisejä ja toinen luokka playlist jolla luodaan soittolistoja
+
+
+# with open("save.txt", "r") as f:
+#     luettu = f.read()
+#     print(luettu)
+
+# # näin luetaan tallennettu tiedosto
+
+# with open('save.txt', 'w') as f:
+#     f.write("Moi! \n")
+
+# # näin tallenetaan jotain tiedostoon
+
+# with open('save1.txt', 'w') as f:
+#     for i in range (1, 51):
+#         f.write(f'\nMoi {i}. kertaa!')
+     
