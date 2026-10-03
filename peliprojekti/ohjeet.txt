@@ -1,0 +1,9 @@
+Pelin tavoite on läpäistä peli jotain reittiä pitkin ja valinnat ovat täysin sinun käsissäsi
+
+Pelissä on useampi (3kpl) reitti, jota pitkin pelin voi läpäistä. Kestävän kehityksen teema on otettu tässä huomioon.
+
+Päävalikossa voit valita asioita, joita voit ottaa mukaan reppuusi matkan ajaksi. Voit tarvita näitä asioita matkan varrella :).
+
+Pelissä on yhteensä erilaisia tiloja 11 kappaletta. Näin ollen, sinulle jää reippaasti valinnanvaraa reitillesi.
+
+Toivotan sinulle onnea matkaasi valitsemallasi reitillä! Nähdään perillä.
