@@ -3,60 +3,18 @@
 # --- Importit --- #
 
 import os
+from luokat.player import Player
+from huoneet_esineet_luonti import kaupunki, metsä, joki, leiripaikka, kauppa, metroasema, keskusta, pyörävarasto, korjaamo, pyörätie, tukikohta
+from huoneet_esineet_luonti import lapio, lamppu, kirves, jakoavain, polkupyörä
+from tallennus import tallenna_peli, lataa_peli
 
 # --- Luokkia --- #
 
-class Player:
-    def __init__(self, nimi, ikä, sijainti):
-        # alustetaan Player olion ominaisuudet
-        self.nimi = nimi
-        self.ikä = ikä
-        self.sijainti = sijainti
-        self.raha = 0
-        self.reppu = []
+# luokat ovat luokka kansiossa
 
-    def liiku(self, uusi_sijainti):
-        # metodi vaihtaa pelaajan sijainnin uuteen huone-olioon
-        self.sijainti = uusi_sijainti
+# --- Esineiden luonti ja Huoneiden luonti --- #
 
-    def kerää_esine(self, esine):
-        # varmistetaan, ettei samaa Esine-oliota lisätä reppuun kahdesti
-        if esine in self.reppu:
-            print("\nSinulla on jo tämä tavara repussasi")
-        else:
-            self.reppu.append(esine)
-
-class Esine:
-    def __init__(self, nimi, paino):
-        self.nimi = nimi
-        self.paino = paino
-        
-class Huone:
-    def __init__(self, nimi, esine=None):
-        self.nimi = nimi
-        self.esine = esine
-
-# --- Esineiden luonti --- #
-
-lapio = Esine("Lapio", 2.0)
-lamppu = Esine("Lamppu", 0.8)
-kirves = Esine("Kirves", 2.5)
-jakoavain = Esine("Jakoavain", 0.3)
-polkupyörä = Esine("Polkupyörä", 4.0)
-
-# --- Huoneiden luonti --- #
-
-kaupunki = Huone("Kaupunki")
-metsä = Huone("Metsä", kirves)
-joki = Huone("Joki")
-leiripaikka = Huone("Leiripaikka", lamppu)
-kauppa = Huone("Kauppa", lamppu)
-metroasema = Huone("Metroasema")
-keskusta = Huone("Keskusta")
-pyörävarasto = Huone("Pyörävarasto", polkupyörä)
-korjaamo = Huone("Korjaamo", jakoavain)
-pyörätie = Huone("Pyörätie")
-tukikohta = Huone("Tukikohta")
+# tehty erillisessä huoneet_esineet_luonti tiedostossa
 
 # --- Pelin esittely --- #
 
@@ -68,62 +26,7 @@ pelin_esittely()
 
 # --- Pelin tallennus ja lataus --- #
 
-def tallenna_peli():
-    # "w" = write, vanha tallennus korvataan uudella
-    with open("tallennus.txt", "w") as tiedosto:
-        tiedosto.write(pelaaja.nimi + "\n")
-        tiedosto.write(str(pelaaja.ikä) + "\n") # write tarvitsee merkkijonon joten int muutetaan str
-        tiedosto.write(pelaaja.sijainti.nimi + "\n")
-        tiedosto.write(str(pelaaja.raha) + "\n") # write tarvitsee merkkijonon joten int muutetaan str
-        for tavara in pelaaja.reppu: # käydään kaikki repun esine-oliot läpi
-            tiedosto.write(tavara.nimi + "\n") # tallennetaan vain esineen nimi ei itse oliota
-
-def lataa_peli():
-    try:
-        with open("tallennus.txt", "r") as tiedosto: # "r" = read, eli luetaan tiedostolta
-            rivit = tiedosto.readlines() # muutetaan tiedoston rivit listaksi
-            nimi = rivit[0].strip() # strip poistaa turhat välilyönnit, rivinvaihdot tms
-            ikä = int(rivit[1].strip()) # muutetaan takaisin int muotoon str:stä
-            sijainti = rivit[2].strip()
-            raha = int(rivit[3].strip()) # muutetaan takaisin int muotoon str:stä
-
-            repun_tavarat = rivit[4:] # indeksistä 4 eteenpäin ovat repun tavaroita
-            tallennettu_reppu = []
-
-            esineet = { # muuttaa tiedostosta luetun esineen nimen takaisin Esine-olioksi
-                "Lapio": lapio,
-                "Lamppu": lamppu,
-                "Kirves": kirves,
-                "Jakoavain": jakoavain,
-                "Polkupyörä": polkupyörä
-            }
-
-            huoneet = { # muuttaa tiedostosta luetun sijainnin nimen takaisin Huone-olioksi
-                "Kaupunki": kaupunki, # esim. tiedostossa "Kaupunki" on key ja se muutetaan valueksi eli olio kaupunki
-                "Metsä": metsä,
-                "Joki": joki,
-                "Leiripaikka": leiripaikka,
-                "Kauppa": kauppa,
-                "Metroasema": metroasema,
-                "Keskusta": keskusta,
-                "Pyörävarasto": pyörävarasto,
-                "Korjaamo": korjaamo,
-                "Pyörätie": pyörätie,
-                "Tukikohta": tukikohta
-            }
-
-            for tavara in repun_tavarat:
-                tavara = tavara.strip()
-                tallennettu_reppu.append(esineet[tavara])
-
-            tallennettu_pelaaja = Player(nimi, ikä, huoneet[sijainti]) # luodaan tallennustiedoston tietojen perustella uusi Player-olio
-            tallennettu_pelaaja.raha = raha # palautetaan tallannettu raha ja reppu
-            tallennettu_pelaaja.reppu = tallennettu_reppu
-
-            return tallennettu_pelaaja # palautetaan valmis pelaaja-olio tästä lataa_peli funktiosta
-
-    except FileNotFoundError:
-        print("\nTallennettua peliä ei löytynyt")
+# tallennus ja lataus ovat erillisessä tallennus tiedostossa
 
 # --- Uusi peli / Lataa peli --- #
 # --- Samalla myös pelaajan luominen --- #
@@ -279,7 +182,7 @@ def huone_kaupunki():
 
         elif valinta == "5":
             paina_enter()
-            tallenna_peli()
+            tallenna_peli(pelaaja)
             lopeta_peli()
         
         elif valinta == "6":
@@ -379,7 +282,7 @@ def huone_metsä():
 
         elif valinta == "4":
             paina_enter()
-            tallenna_peli()
+            tallenna_peli(pelaaja)
             lopeta_peli()
 
         elif valinta == "5":
@@ -459,7 +362,7 @@ def huone_joki():
 
         elif valinta == "5":
             paina_enter()
-            tallenna_peli()
+            tallenna_peli(pelaaja)
             lopeta_peli()
         
         elif valinta == "6":
@@ -506,7 +409,7 @@ def huone_leiripaikka():
 
             elif valinta == "3":
                 paina_enter()
-                tallenna_peli()
+                tallenna_peli(pelaaja)
                 lopeta_peli()
 
         else:
@@ -541,7 +444,7 @@ def huone_leiripaikka():
             
                 elif ala_valinta == "3":
                     paina_enter()
-                    tallenna_peli()
+                    tallenna_peli(pelaaja)
                     lopeta_peli()
 
                 else:
@@ -577,7 +480,7 @@ def huone_leiripaikka():
 
                 elif ala_valinta == "3":
                     paina_enter()
-                    tallenna_peli()
+                    tallenna_peli(pelaaja)
                     lopeta_peli()
                 
                 else:
@@ -728,7 +631,7 @@ def huone_kauppa():
         
         elif valinta == "6":
             paina_enter()
-            tallenna_peli()
+            tallenna_peli(pelaaja)
             lopeta_peli()
 
         elif valinta == "7":
@@ -799,7 +702,7 @@ def huone_metroasema():
             
         elif valinta == "5":
             paina_enter()
-            tallenna_peli()
+            tallenna_peli(pelaaja)
             lopeta_peli()
 
         elif valinta == "6":
@@ -870,7 +773,7 @@ def huone_keskusta():
 
         elif valinta == "4":
             paina_enter()
-            tallenna_peli()
+            tallenna_peli(pelaaja)
             lopeta_peli()
         
         elif valinta == "5":
@@ -921,7 +824,7 @@ def huone_pyörävarasto():
 
         elif valinta == "4":
             paina_enter()
-            tallenna_peli()
+            tallenna_peli(pelaaja)
             lopeta_peli()
         
         elif valinta == "5":
@@ -979,7 +882,7 @@ def huone_korjaamo():
 
             elif valinta == "3":
                 paina_enter()
-                tallenna_peli()
+                tallenna_peli(pelaaja)
                 lopeta_peli()
             
             elif valinta == "4":
@@ -1053,7 +956,7 @@ def huone_pyörätie():
 
         elif valinta == "5":
             paina_enter()
-            tallenna_peli()
+            tallenna_peli(pelaaja)
             lopeta_peli()
         
         elif valinta == "6":
@@ -1088,7 +991,6 @@ def huone_tukikohta():
         
         except ValueError:
             print("\nTapahtui virhe, koita uudelleen syöttää (1-5)")
-
 
 # --- Pelin silmukka --- #
 
