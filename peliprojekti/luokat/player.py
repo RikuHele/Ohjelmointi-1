@@ -15,5 +15,7 @@ class Player:
         # varmistetaan, ettei samaa Esine-oliota lisätä reppuun kahdesti
         if esine in self.reppu:
             print("\nSinulla on jo tämä tavara repussasi")
+            return False # koska haluamme että lisää tavara valikko toimii kunnolla, eli siellä on if ehtoja
         else:
             self.reppu.append(esine)
+            return True # koska haluamme että lisää tavara valikko toimii kunnolla, eli siellä on if ehtoja

@@ -82,20 +82,23 @@ def lisää_reppu():
         sisältö = input('\nMitä asioita haluaisit lisätä reppuusi? Vastaa (1-6):\n')
 
         if sisältö == "1":
-            pelaaja.kerää_esine(lapio)
-            print("Lapio lisätty.")
+            if pelaaja.kerää_esine(lapio): # nyt näiden if ehtojen avulla, jos tavara on jo repussa
+                print("Lapio lisätty.") # tulostuu pelkästään tavara on jo repussa, joka on määritelty kerää_esine funktiossa
         elif sisältö == "2":
-            pelaaja.kerää_esine(lamppu)
-            print("Lamppu lisätty.")
+            if pelaaja.kerää_esine(lamppu):
+                print("Lamppu lisätty.")
         elif sisältö == "3":
-            pelaaja.kerää_esine(kirves)
-            print("Kirves lisätty.")
+            if pelaaja.kerää_esine(kirves):
+                print("Kirves lisätty.")
         elif sisältö == "4":
-            pelaaja.kerää_esine(jakoavain)
-            print("Jakoavain lisätty")
+            if pelaaja.kerää_esine(jakoavain):
+                print("Jakoavain lisätty")
         elif sisältö == "5":
-            pelaaja.raha = 100
-            print("100€ käteistä rahaa lisätty.")
+            if pelaaja.raha == 0: # nyt tarkistetaan, että pelaajalla on 0 rahaa kun hän lisää 100€
+                pelaaja.raha = 100 # muussa tapauksessa tulostuisi aina että rahaa lisätty, vaikka ei oikeasti ole
+                print("100 € käteistä rahaa lisätty.")
+            else:
+                print("\nOlet jo lisännyt 100 € käteistä rahaa")
         elif sisältö == "6":
             break
         else:
@@ -251,16 +254,22 @@ def huone_metsä():
 
                     elif ala_valinta == "2":
                         print("\nEt voi jatkaa matkaasi metsässä, käännytään ympäri takaisin kaupunkiin")
+                        paina_enter()
+                        tyhjennä_ruutu()
                         pelaaja.liiku(kaupunki)
                         break
 
                     else:
                         print("Väärä valinta, valitse (1-2)")
+                        paina_enter()
+                        tyhjennä_ruutu()
 
                 elif tutki_valinta == "2":
                     print("\nAsia kunnossa, jätetään esine rauhaan")
                     print("Valitettavasti emme voi jatkaa matkaamme metsässä ilman kirvestä")
                     print("Palaamme kaupunkiin")
+                    paina_enter()
+                    tyhjennä_ruutu()
                     pelaaja.liiku(kaupunki)
                     break
 
@@ -377,14 +386,14 @@ def huone_joki():
 def huone_leiripaikka():
     print("\n=== Leiripaikka ====")
     print(f"\nHienoa, olen ylpeä sinusta {pelaaja.nimi}, keräsit roskat ja suojelit luontoa")
-    print("Olet saapunut leirintäalueelle, et oikeastaan nää mitään, koska on niin pimeää")
+    print("Olet saapunut leirintäalueelle, et oikeastaan näe mitään, koska on niin pimeää")
     print("Olikohan sinulla lamppu mukana?")
 
     while True:
 
         if lamppu in pelaaja.reppu:
             print("\nMahtava homma, olet pakannut lampun mukaan matkalle")
-            print("Huomaat taas leirintäpaikalla useita roskia, ketkäköhän on ne jättänyt sinne...")
+            print("Huomaat taas leirintäpaikalla useita roskia, ketkäköhän on jättänyt ne sinne...")
             print("Haluatko kerätä roskat mukaan?")
             print("\n1. Kyllä")
             print("2. En")
